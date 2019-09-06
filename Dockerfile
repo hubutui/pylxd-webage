@@ -1,7 +1,6 @@
-FROM python:3.7-alpine
+FROM python:3.7-slim
 
-RUN apk add --no-cache build-base openssl-dev libffi-dev \
-    && pip install pylxd cherrypy json2html \
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pylxd cherrypy json2html \
     && rm -rf ~/.cache
 COPY main.py /
 EXPOSE 8080
